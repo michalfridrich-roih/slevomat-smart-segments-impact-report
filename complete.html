@@ -1,0 +1,1460 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Segments Impact — Top Performers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;background:#F3F4F6;font-family:'Lato',sans-serif;color:#262626;}
+  .num{font-variant-numeric:tabular-nums;}
+  .top-performers-label{display:inline-flex;align-items:baseline;gap:0.24em;white-space:nowrap;}
+  .top-performers-icons{display:inline-flex;align-items:center;gap:0.08em;flex:none;position:relative;top:0.13em;line-height:1;}
+  .top-performers-icons svg{display:block;flex:none;overflow:visible;}
+  .top-performers-sparkles-icon{width:1.05em;height:1.05em;}
+  .top-performers-meta-icon{width:1.08em;height:0.8em;}
+  .rh-app{display:flex;min-height:100vh;}
+  .rh-sidebar{width:260px;box-sizing:border-box;flex:none;background:#120C2B;color:#FFFFFF;display:flex;flex-direction:column;padding:18px 16px 14px;}
+  .rh-logo-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:2px 4px 18px;}
+  .rh-logo{font:700 17px/1 'Lato';letter-spacing:0.08em;color:#FFFFFF;}
+  .rh-collapse{appearance:none;border:0;background:transparent;color:rgba(255,255,255,0.72);padding:4px;cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;}
+  .rh-collapse:hover{color:#FFFFFF;background:rgba(255,255,255,0.06);}
+  .rh-account{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;appearance:none;border:1px solid rgba(255,255,255,0.1);border-radius:8px;background:#1A1438;color:#FFFFFF;padding:11px 12px;font:700 14px/20px 'Lato';cursor:pointer;margin-bottom:14px;}
+  .rh-account-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left;}
+  .rh-chevron-down,.rh-nav-chevron{flex:none;opacity:0.72;}
+  .rh-nav{display:flex;flex-direction:column;gap:2px;}
+  .rh-nav--secondary{margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);}
+  .rh-nav-item{display:flex;align-items:center;gap:12px;width:100%;box-sizing:border-box;padding:11px 12px;border-radius:8px;color:rgba(255,255,255,0.88);text-decoration:none;font:400 14px/20px 'Lato';border:0;background:transparent;cursor:pointer;text-align:left;}
+  .rh-nav-item span{flex:1;min-width:0;}
+  .rh-nav-item:hover{background:rgba(255,255,255,0.06);color:#FFFFFF;}
+  .rh-nav-item--active{background:#2B2454;color:#FFFFFF;font-weight:700;}
+  .rh-nav-icon{width:20px;height:20px;flex:none;opacity:0.95;}
+  .rh-nav-chevron{width:12px;height:12px;margin-left:auto;}
+  .rh-user{display:flex;align-items:center;gap:10px;width:100%;margin-top:14px;padding:10px 8px;border-radius:8px;border:0;background:transparent;color:inherit;cursor:pointer;text-align:left;}
+  .rh-user:hover{background:rgba(255,255,255,0.05);}
+  .rh-user-avatar{width:38px;height:38px;border-radius:50%;flex:none;border:1px solid rgba(255,255,255,0.12);background:radial-gradient(circle at 35% 30%,#F2C4A5 0%,#D88963 55%,#B86A4D 100%);}
+  .rh-user-meta{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px;}
+  .rh-user-name{font:700 13px/17px 'Lato';color:#FFFFFF;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .rh-user-email{font:400 11px/15px 'Lato';color:rgba(255,255,255,0.55);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .rh-main{flex:1;min-width:0;display:flex;flex-direction:column;background:#F3F4F6;}
+  .rh-page-header{padding:22px 32px;background:#FFFFFF;border-bottom:1px solid #ECECEF;}
+  .rh-page-title{margin:0;font:700 24px/30px 'Lato';color:#262626;}
+  .rh-content{padding:24px 32px 40px;}
+  .card{max-width:1100px;width:100%;box-sizing:border-box;background:#FFFFFF;border:1px solid #DFDFDF;border-radius:8px;box-shadow:0 8px 24px rgba(13,5,46,0.06);overflow:hidden;}
+  #evidence-table-scroll:focus-visible{outline:2px solid #2A46D5;outline-offset:3px;}
+  [data-product-comparison-card]{container-type:inline-size;}
+  .product-comparison-header{position:relative;}
+  .product-comparison-identity{min-width:0;}
+  .product-comparison-name{overflow-wrap:break-word;word-break:normal;hyphens:none;}
+  .product-comparison-badge{flex:none;}
+  .product-comparison-metrics>[data-product-metric]{min-width:0;}
+  .product-comparison-roas-value{max-width:100%;}
+  @container (max-width:560px){
+    .product-comparison-header{padding-top:34px;}
+    .product-comparison-identity{width:100%;}
+    .product-comparison-badge{position:absolute;top:0;right:0;}
+    .product-comparison-metrics{grid-template-columns:minmax(158px,0.72fr) minmax(0,1fr) !important;}
+    .product-comparison-metrics>[data-product-metric="spend"]{padding-left:12px !important;padding-right:12px !important;}
+    .product-comparison-metrics>[data-product-metric="spend"]>.num{font-size:15px !important;letter-spacing:-0.02em;}
+    .product-comparison-roas-value{font-size:24px !important;line-height:30px !important;letter-spacing:-0.03em !important;}
+  }
+  @container (max-width:400px){
+    .product-comparison-metrics{grid-template-columns:1fr !important;}
+    .product-comparison-roas-value{font-size:23px !important;}
+  }
+  @media (max-width:1100px){
+    .rh-sidebar{width:220px;}
+    .rh-page-header{padding:18px 22px;}
+    .rh-content{padding:20px 22px 32px;}
+    #product-examples [data-product-comparison-grid]{grid-template-columns:1fr !important;}
+  }
+  @media (max-width:900px){
+    .rh-sidebar{display:none;}
+    .rh-page-header{padding:16px 20px;}
+    .rh-content{padding:16px 20px 32px;}
+    #report-hero{padding:36px 32px 8px !important;}
+    #report-hero h1{font-size:36px !important;line-height:42px !important;}
+    #product-examples,#timeline-section,#catalogue-results{padding-left:32px !important;padding-right:32px !important;}
+    #impact-gate{flex-direction:column;align-items:flex-start !important;gap:16px !important;}
+    #impact-reveal{white-space:normal !important;}
+  }
+  @media (max-width:680px){
+    .rh-page-header{padding:14px 16px;}
+    .rh-content{padding:10px 10px 24px;}
+    #report-hero{padding:28px 20px 8px !important;}
+    #report-hero h1{font-size:32px !important;line-height:38px !important;}
+    #product-examples,#timeline-section,#catalogue-results{padding-left:20px !important;padding-right:20px !important;}
+    #hero-results{padding:22px 20px 16px !important;}
+    #hero-results .impact-value{font-size:58px !important;}
+    [data-product-comparison-card]{padding:16px !important;}
+    .product-comparison-header{padding-top:0;flex-direction:column;gap:10px !important;}
+    .product-comparison-identity{width:100%;}
+    .product-comparison-badge{position:static;order:-1;align-self:flex-end;}
+    #combined-chart{padding:16px 10px 20px !important;}
+    #combined-chart .chart-toolbar{flex-direction:column;}
+    #combined-chart .chart-actions{width:100%;align-items:flex-start !important;}
+    #combined-chart .comparison-control-label{text-align:left !important;}
+    #combined-chart .comparison-toggle{max-width:100%;flex-wrap:wrap;}
+    #combined-chart .comparison-toggle button{white-space:normal;}
+    #combined-chart .metric-chart-panel{padding:10px 4px 4px;}
+  }
+  @media print{.rh-sidebar,.rh-page-header{display:none !important;}.rh-content{padding:0;}.rh-app{display:block;}}
+</style>
+</head>
+<body>
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden;">
+  <defs>
+    <symbol id="top-performers-sparkles-symbol" viewBox="0 0 33 28">
+      <path d="M13.7 3.2c.85 6.15 4.4 9.7 10.55 10.55-6.15.85-9.7 4.4-10.55 10.55-.85-6.15-4.4-9.7-10.55-10.55 6.15-.85 9.7-4.4 10.55-10.55Z" fill="none" stroke="#7447E8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M25.9 1.7c.3 2.35 1.65 3.7 4 4-2.35.3-3.7 1.65-4 4-.3-2.35-1.65-3.7-4-4 2.35-.3 3.7-1.65 4-4Z" fill="#7447E8"></path>
+      <circle cx="30.2" cy="13.2" r="1.3" fill="#7447E8"></circle>
+    </symbol>
+    <symbol id="top-performers-meta-symbol" viewBox="0 0 24 24">
+      <path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973.06.303.15.59.265.86.103.267.227.522.371.761.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843.33-.278.602-.604.81-.973.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z" fill="#2F7DF6"></path>
+    </symbol>
+  </defs>
+</svg>
+<div class="rh-app">
+  <aside class="rh-sidebar" aria-label="Main navigation">
+    <div class="rh-logo-row">
+      <div class="rh-logo">ROIHUNTER</div>
+      <button type="button" class="rh-collapse" aria-label="Collapse sidebar">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M6.5 3.5V14.5" stroke="currentColor" stroke-width="1.3"/></svg>
+      </button>
+    </div>
+
+    <button type="button" class="rh-account" aria-haspopup="listbox">
+      <span class="rh-account-name">Slevomat</span>
+      <svg class="rh-chevron-down" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+
+    <nav class="rh-nav">
+      <a href="#" class="rh-nav-item rh-nav-item--active" aria-current="page">
+        <svg class="rh-nav-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 8.8L10 3.5L16.5 8.8V15.8C16.5 16.33 16.08 16.75 15.55 16.75H4.45C3.92 16.75 3.5 16.33 3.5 15.8V8.8Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        <span>Home</span>
+      </a>
+      <a href="#" class="rh-nav-item">
+        <svg class="rh-nav-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10 2.8V10H16.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Product Performance</span>
+        <svg class="rh-nav-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+      <a href="#" class="rh-nav-item">
+        <svg class="rh-nav-icon" viewBox="0 0 20 20" aria-hidden="true"><rect x="3.2" y="3.2" width="5.8" height="5.8" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="11" y="3.2" width="5.8" height="5.8" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="3.2" y="11" width="5.8" height="5.8" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="11" y="11" width="5.8" height="5.8" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+        <span>Creative Factory</span>
+        <svg class="rh-nav-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+      <a href="#" class="rh-nav-item">
+        <svg class="rh-nav-icon rh-nav-icon--meta" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10C4.5 6.8 6.9 4.5 10 4.5C13.1 4.5 15.5 6.8 15.5 10C15.5 13.2 13.1 15.5 10 15.5C6.9 15.5 4.5 13.2 4.5 10Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M7.2 10C7.2 8.4 8.4 7.2 10 7.2C11.6 7.2 12.8 8.4 12.8 10C12.8 11.6 11.6 12.8 10 12.8C8.4 12.8 7.2 11.6 7.2 10Z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+        <span>Meta</span>
+        <svg class="rh-nav-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+      <a href="#" class="rh-nav-item">
+        <svg class="rh-nav-icon rh-nav-icon--google" viewBox="0 0 20 20" aria-hidden="true"><text x="10" y="14.5" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor" font-family="Lato, sans-serif">G</text></svg>
+        <span>Google</span>
+        <svg class="rh-nav-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+      <a href="#" class="rh-nav-item">
+        <svg class="rh-nav-icon rh-nav-icon--snap" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.2C7.1 3.2 5 5.6 5 8.4C5 12.1 10 16.8 10 16.8C10 16.8 15 12.1 15 8.4C15 5.6 12.9 3.2 10 3.2Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="8.2" cy="8.1" r="0.9" fill="currentColor"/><circle cx="11.8" cy="8.1" r="0.9" fill="currentColor"/></svg>
+        <span>Snapchat</span>
+      </a>
+    </nav>
+
+    <div class="rh-nav rh-nav--secondary">
+      <a href="#" class="rh-nav-item">
+        <svg class="rh-nav-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10 3.2V4.8M10 15.2V16.8M3.2 10H4.8M15.2 10H16.8M5.1 5.1L6.2 6.2M13.8 13.8L14.9 14.9M14.9 5.1L13.8 6.2M6.2 13.8L5.1 14.9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <span>Settings</span>
+        <svg class="rh-nav-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+      <a href="#" class="rh-nav-item">
+        <svg class="rh-nav-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10 9.1V13.2M10 6.6V6.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Help</span>
+        <svg class="rh-nav-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+
+    <button type="button" class="rh-user">
+      <span class="rh-user-avatar" aria-hidden="true"></span>
+      <span class="rh-user-meta">
+        <span class="rh-user-name">User Name</span>
+        <span class="rh-user-email">user@example.com</span>
+      </span>
+      <svg class="rh-nav-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+  </aside>
+
+  <div class="rh-main">
+    <header class="rh-page-header">
+      <h1 class="rh-page-title">Home</h1>
+    </header>
+    <div class="rh-content">
+<div class="card">
+
+  <!-- ===== HERO ===== -->
+  <div id="report-hero" style="padding:52px 56px 8px;">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+      <div style="font:700 13px/18px 'Lato';letter-spacing:0.08em;text-transform:uppercase;color:#2A46D5;">Smart Segments · <span class="top-performers-label">Top Performers<span class="top-performers-icons" aria-hidden="true"><svg class="top-performers-sparkles-icon" viewBox="0 0 33 28" focusable="false"><use href="#top-performers-sparkles-symbol"></use></svg><svg class="top-performers-meta-icon" viewBox="0 0 24 24" focusable="false"><use href="#top-performers-meta-symbol"></use></svg></span></span></div>
+      
+      <span style="font:700 10px/1 'Lato';letter-spacing:0.05em;text-transform:uppercase;color:#55555C;background:#F1F1F3;padding:4px 8px;border-radius:2px;">Czechia · Slevomat</span>
+      
+      
+      <span style="font:700 10px/1 'Lato';letter-spacing:0.06em;text-transform:uppercase;color:#03874C;background:#E7F6EE;padding:4px 8px;border-radius:2px;">20% Segment Prioritisation adoption</span>
+      
+      <span style="font:700 10px/1 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#55555C;background:#F1F1F3;padding:4px 8px;border-radius:2px;margin-left:auto;white-space:nowrap;">27 Apr – 23 Aug 2026</span>
+    </div>
+    <h1 style="font:700 44px/50px 'Lato';letter-spacing:-0.02em;margin:22px 0 0;max-width:760px;">What revenue was associated with the <span style="color:#2A46D5;">additional spend on Top Performers?</span></h1>
+    <p style="font:400 17px/26px 'Lato';color:#555555;margin:18px 0 0;max-width:700px;">Segment Prioritisation shifts budget towards products as they join <b style="color:#45454B;"><span class="top-performers-label">Top Performers<span class="top-performers-icons" aria-hidden="true"><svg class="top-performers-sparkles-icon" viewBox="0 0 33 28" focusable="false"><use href="#top-performers-sparkles-symbol"></use></svg><svg class="top-performers-meta-icon" viewBox="0 0 24 24" focusable="false"><use href="#top-performers-meta-symbol"></use></svg></span></span></b>. This report follows what that spend did next.</p>
+    <style>
+      .progressive-result[hidden],#impact-gate[hidden]{display:none !important;}
+      .progressive-result.revealed{animation:impact-reveal 420ms ease-out both;}
+      #combined-chart[hidden]{display:none !important;}
+      #combined-chart.revealed{animation:impact-reveal 420ms ease-out both;}
+      @keyframes impact-reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+      @media (prefers-reduced-motion:reduce) { .progressive-result.revealed,#combined-chart.revealed{animation:none;}}
+      @media print { .progressive-result[hidden],#combined-chart[hidden]{display:block !important;}#impact-method>.method-body{display:block !important;}#impact-gate,#timeline-reveal,#timeline-hide{display:none !important;}}
+    </style>
+
+    
+    
+
+    <div id="impact-gate" style="display:flex;justify-content:space-between;align-items:center;gap:28px;margin-top:28px;background:#F2F5FF;border:1px solid #DCE3FF;border-radius:8px;padding:22px 24px;">
+      <div>
+        <div style="font:700 13px/18px 'Lato';letter-spacing:0.05em;text-transform:uppercase;color:#2A46D5;">Explore the answer</div>
+        <div style="font:400 14px/21px 'Lato';color:#62626A;margin-top:4px;max-width:500px;">See the revenue associated with the additional spend on products that stayed in <span class="top-performers-label">Top Performers<span class="top-performers-icons" aria-hidden="true"><svg class="top-performers-sparkles-icon" viewBox="0 0 33 28" focusable="false"><use href="#top-performers-sparkles-symbol"></use></svg><svg class="top-performers-meta-icon" viewBox="0 0 24 24" focusable="false"><use href="#top-performers-meta-symbol"></use></svg></span></span>.</div>
+      </div>
+      <button id="impact-reveal" type="button" aria-expanded="false" aria-controls="hero-results product-examples timeline-section catalogue-results" style="appearance:none;border:0;border-radius:6px;background:#2A46D5;color:#FFFFFF;padding:12px 18px;white-space:nowrap;font:700 13px/18px 'Lato';cursor:pointer;box-shadow:0 2px 5px rgba(42,70,213,0.22);">Show the impact&nbsp; →</button>
+    </div>
+    <noscript><style>.progressive-result[hidden]{display:block !important;}#impact-gate{display:none !important;}</style></noscript>
+
+    <div id="hero-results" class="progressive-result" hidden tabindex="-1" style="margin-top:28px;background:#FFFFFF;border:1px solid #E4E4E8;border-radius:8px;padding:26px 30px 18px;">
+      <div style="display:grid;grid-template-columns:1fr;align-items:stretch;">
+        <div>
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+            <div style="font:700 13px/17px 'Lato';letter-spacing:0.06em;text-transform:uppercase;color:#2A46D5;">Revenue associated with adoption of segment prioritisation · <span style="color:#03874C;">20% spend share</span></div>
+            <span style="font:700 10px/1 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#55555C;background:#F1F1F3;padding:4px 8px;border-radius:2px;white-space:nowrap;">27 Apr – 23 Aug 2026</span>
+          </div>
+          <div class="num impact-value" style="font:700 72px/1 'Lato';letter-spacing:-0.03em;color:#2A46D5;margin-top:8px;">3.5M Kč</div>
+          <div style="font:700 16px/23px 'Lato';color:#262626;margin-top:12px;max-width:680px;">Products that joined <span class="top-performers-label">Top Performers<span class="top-performers-icons" aria-hidden="true"><svg class="top-performers-sparkles-icon" viewBox="0 0 33 28" focusable="false"><use href="#top-performers-sparkles-symbol"></use></svg><svg class="top-performers-meta-icon" viewBox="0 0 24 24" focusable="false"><use href="#top-performers-meta-symbol"></use></svg></span></span> got more budget — and returned more on it.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;">
+            <div style="background:#F2F5FF;border-radius:6px;padding:10px 14px;">
+              <div style="font:400 11px/16px 'Lato';color:#6B7099;">Spend increase over the 3 weeks</div>
+              <div class="num" style="font:700 16px/22px 'Lato';color:#262626;">+78%</div>
+            </div>
+            <div style="background:#F2F5FF;border-radius:6px;padding:10px 14px;">
+              <div style="font:400 11px/16px 'Lato';color:#6B7099;">ROAS before → after joining</div>
+              <div class="num" style="font:700 16px/22px 'Lato';color:#262626;">11.41× → 15.41×</div>
+            </div>
+          </div>
+          <details id="impact-method" style="margin-top:20px;background:#F7F7F9;border:1px solid #E4E4E8;border-radius:8px;">
+            <style>
+              #impact-method>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:13px 18px;font:700 12px/17px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#45454B;border-radius:8px;}
+              #impact-method>summary::-webkit-details-marker{display:none;}
+              #impact-method>summary:hover{background:#F1F1F3;color:#2A46D5;}
+              #impact-method>summary:focus-visible{outline:2px solid #2A46D5;outline-offset:2px;}
+              #impact-method .caret{flex:none;transition:transform 160ms ease;}
+              #impact-method[open] .caret{transform:rotate(90deg);}
+              #impact-method .method-body{padding:0 18px 18px;}
+              #impact-method>summary .hint{margin-left:auto;font:400 11px/16px 'Lato';letter-spacing:0;text-transform:none;color:#8A8A91;}
+              @media print { #impact-method{border-color:#DFDFDF;}#impact-method>summary .hint{display:none;} }
+              @media (prefers-reduced-motion:reduce) { #impact-method .caret{transition:none;} }
+            </style>
+            <summary>
+              <svg class="caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2.5l4 3.5-4 3.5" fill="none" stroke="#8A8A91" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>How is this calculated?</span>
+              <span class="hint">the full working, over the 3 weeks from joining</span>
+            </summary>
+            <div class="method-body">
+              <div style="display:grid;grid-template-columns:1fr auto;gap:6px 20px;max-width:460px;">
+                <div style="font:400 12px/18px 'Lato';color:#55555C;">Meta ad spend these products actually received</div>
+                <div class="num" style="text-align:right;font:700 12px/18px 'Lato';color:#262626;">516.6k Kč</div>
+                <div style="font:400 12px/18px 'Lato';color:#55555C;">Spend they would have had without joining</div>
+                <div class="num" style="text-align:right;font:700 12px/18px 'Lato';color:#262626;">− 291.0k Kč</div>
+                <div style="font:700 12px/18px 'Lato';color:#262626;padding-top:8px;border-top:1px solid #E4E4E8;">Estimated additional spend</div>
+                <div class="num" style="text-align:right;font:700 12px/18px 'Lato';color:#262626;padding-top:8px;border-top:1px solid #E4E4E8;">225.6k Kč</div>
+                <div style="font:400 12px/18px 'Lato';color:#55555C;">× Average ROAS of the products that joined</div>
+                <div class="num" style="text-align:right;font:700 12px/18px 'Lato';color:#262626;">15.41×</div>
+                <div style="font:700 12px/18px 'Lato';color:#262626;padding-top:8px;border-top:1px solid #E4E4E8;">Revenue associated with adoption of segment prioritisation</div>
+                <div class="num" style="text-align:right;font:700 12px/18px 'Lato';color:#2A46D5;padding-top:8px;border-top:1px solid #E4E4E8;">3.5M Kč</div>
+              </div>
+              <div style="font:400 11px/17px 'Lato';color:#8A8A91;margin-top:12px;max-width:560px;">Each product is measured for 3 weeks from the week it joined, so dates differ by product. Together, these products spent an average 97.0k Kč per week during the 2 weeks before joining. We use that rate to estimate what they would have spent without joining.</div>
+            </div>
+          </details>
+          
+        </div>
+      </div>
+      <div style="font:400 12px/18px 'Lato';color:#77777E;margin-top:14px;">This estimate covers only products that joined <span class="top-performers-label">Top Performers<span class="top-performers-icons" aria-hidden="true"><svg class="top-performers-sparkles-icon" viewBox="0 0 33 28" focusable="false"><use href="#top-performers-sparkles-symbol"></use></svg><svg class="top-performers-meta-icon" viewBox="0 0 24 24" focusable="false"><use href="#top-performers-meta-symbol"></use></svg></span></span> and stayed. It applies their 15.41× average ROAS after joining to the estimated 225.6k Kč in additional spend. It shows associated revenue, not revenue proven to have been caused by joining.</div>
+    </div>
+  </div>
+
+
+  <!-- ===== TWO PRODUCT OUTCOMES ===== -->
+  
+  <div id="product-examples" class="progressive-result" hidden style="background:#F8F8F8;border-top:1px solid #DFDFDF;padding:28px 56px 32px;">
+    <div style="font:700 11px/16px 'Lato';letter-spacing:0.06em;text-transform:uppercase;color:#6F6F6F;">How <span class="top-performers-label">Top Performers<span class="top-performers-icons" aria-hidden="true"><svg class="top-performers-sparkles-icon" viewBox="0 0 33 28" focusable="false"><use href="#top-performers-sparkles-symbol"></use></svg><svg class="top-performers-meta-icon" viewBox="0 0 24 24" focusable="false"><use href="#top-performers-meta-symbol"></use></svg></span></span> protects the upside</div>
+    <div style="font:700 22px/29px 'Lato';color:#262626;margin-top:6px;max-width:700px;">Products stay in the segment only while they maintain ROAS</div>
+    <p style="font:400 14px/21px 'Lato';color:#6F6F6F;margin:6px 0 0;max-width:720px;">Two products that joined <span class="top-performers-label">Top Performers<span class="top-performers-icons" aria-hidden="true"><svg class="top-performers-sparkles-icon" viewBox="0 0 33 28" focusable="false"><use href="#top-performers-sparkles-symbol"></use></svg><svg class="top-performers-meta-icon" viewBox="0 0 24 24" focusable="false"><use href="#top-performers-meta-symbol"></use></svg></span></span>. One kept performing and stayed. The other didn't, and dropped out.</p>
+    <div data-product-comparison-grid style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:20px;align-items:stretch;">
+      
+      <div data-product-comparison-card="stayed" style="background:#FFFFFF;border:1px solid #D9E0FF;border-top:4px solid #2A46D5;border-radius:8px;padding:20px 22px;min-width:0;">
+        <div class="product-comparison-header" style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start;">
+          <div class="product-comparison-identity" style="display:flex;gap:14px;align-items:flex-start;min-width:0;">
+            
+            <img src="https://slevomat.sgcdn.cz/images/t/2000/b6/b0/019c2b23-4444-72a8-9188-16754998b0b6-fzss1xzax5.webp" alt="" style="width:82px;height:102px;object-fit:contain;border-radius:7px;border:1px solid #ECECEF;flex-shrink:0;background:#F6F6F7;">
+            
+            <div style="min-width:0;">
+              <div class="product-comparison-name" style="font:700 16px/22px 'Lato';color:#262626;">Dentální hygiena nebo profesionální bělení zubů</div>
+              <div style="font:400 12px/17px 'Lato';color:#929299;margin-top:2px;">Medical Institut</div>
+              <div style="font:400 11px/16px 'Lato';color:#A4A4AA;margin-top:2px;">Krása a relax,Péče o zuby</div>
+            </div>
+          </div>
+          <span class="product-comparison-badge" style="font:700 10px/14px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#2A46D5;background:#E8EDFF;padding:5px 9px;border-radius:4px;white-space:nowrap;">Stayed in the segment</span>
+        </div>
+        <div style="font:700 12px/18px 'Lato';color:#2A46D5;margin-top:22px;">ROAS improved with the additional spend</div>
+        <div class="product-comparison-metrics" style="display:grid;grid-template-columns:minmax(120px,0.58fr) minmax(0,1fr);gap:10px;margin-top:12px;align-items:stretch;">
+          <div data-product-metric="spend" style="background:#F6F6F8;border-radius:6px;padding:12px 14px;min-height:96px;box-sizing:border-box;">
+            <div style="font:700 10px/14px 'Lato';color:#929299;text-transform:uppercase;">Meta ad spend</div>
+            <div class="num" style="font:700 16px/22px 'Lato';color:#45454B;margin-top:3px;white-space:nowrap;">91 Kč → 319 Kč</div>
+            <div style="font:700 11px/16px 'Lato';color:#77777E;">+249%</div>
+          </div>
+          <div data-product-metric="roas" data-emphasis="filled" style="background:#2A46D5;color:#FFFFFF;border-radius:6px;padding:12px 16px;min-height:96px;box-sizing:border-box;">
+            <div style="font:700 10px/14px 'Lato';color:#FFFFFF;text-transform:uppercase;">ROAS</div>
+            <div class="num product-comparison-roas-value" style="font:700 26px/32px 'Lato';letter-spacing:-0.02em;color:#FFFFFF;margin-top:3px;white-space:nowrap;">5.66× → 5.83×</div>
+            <div style="font:700 11px/16px 'Lato';color:#FFFFFF;">+3%</div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div data-product-comparison-card="left" style="background:#FFFFFF;border:1px solid #F1D8CF;border-top:4px solid #E56A3C;border-radius:8px;padding:20px 22px;min-width:0;">
+        <div class="product-comparison-header" style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start;">
+          <div class="product-comparison-identity" style="display:flex;gap:14px;align-items:flex-start;min-width:0;">
+            
+            <img src="https://slevomat.sgcdn.cz/images/t/2000/60/05/019c2acd-b94b-7306-9a8c-ee9e28a60560-lcbtakslfk.webp" alt="" style="width:82px;height:102px;object-fit:contain;border-radius:7px;border:1px solid #ECECEF;flex-shrink:0;background:#F6F6F7;">
+            
+            <div style="min-width:0;">
+              <div class="product-comparison-name" style="font:700 16px/22px 'Lato';color:#262626;">Running sushi: 2hodinová asijská hostina v OC</div>
+              <div style="font:400 12px/17px 'Lato';color:#929299;margin-top:2px;">China Bistro</div>
+              <div style="font:400 11px/16px 'Lato';color:#A4A4AA;margin-top:2px;">Restaurace a bary,Sushi,Asijské restaurace</div>
+            </div>
+          </div>
+          <span class="product-comparison-badge" style="font:700 10px/14px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#C65124;background:#FDECE5;padding:5px 9px;border-radius:4px;white-space:nowrap;">Left the segment</span>
+        </div>
+        <div style="font:700 12px/18px 'Lato';color:#C65124;margin-top:22px;">ROAS declined with the additional spend</div>
+        <div class="product-comparison-metrics" style="display:grid;grid-template-columns:minmax(120px,0.58fr) minmax(0,1fr);gap:10px;margin-top:12px;align-items:stretch;">
+          <div data-product-metric="spend" style="background:#F6F6F8;border-radius:6px;padding:12px 14px;min-height:96px;box-sizing:border-box;">
+            <div style="font:700 10px/14px 'Lato';color:#929299;text-transform:uppercase;">Meta ad spend</div>
+            <div class="num" style="font:700 16px/22px 'Lato';color:#45454B;margin-top:3px;white-space:nowrap;">384 Kč → 3.6k Kč</div>
+            <div style="font:700 11px/16px 'Lato';color:#77777E;">+838%</div>
+          </div>
+          <div data-product-metric="roas" data-emphasis="filled" style="background:#C65124;color:#FFFFFF;border-radius:6px;padding:12px 16px;min-height:96px;box-sizing:border-box;">
+            <div style="font:700 10px/14px 'Lato';color:#FFFFFF;text-transform:uppercase;">ROAS</div>
+            <div class="num product-comparison-roas-value" style="font:700 26px/32px 'Lato';letter-spacing:-0.02em;color:#FFFFFF;margin-top:3px;white-space:nowrap;">3.07× → 0.47×</div>
+            <div style="font:700 11px/16px 'Lato';color:#FFFFFF;">-85%</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div style="display:flex;align-items:flex-start;gap:10px;background:#FFFFFF;border:1px solid #E4E4E8;border-radius:6px;padding:12px 14px;margin-top:14px;">
+      <span style="font-size:15px;line-height:22px;">↳</span>
+      <div style="font:700 14px/21px 'Lato';color:#45454B;">The first product remained in the segment while its observed ROAS improved. The second product left after its observed ROAS declined. Spend shown covers the full aligned window and can include spend after leaving.</div>
+    </div>
+    
+  </div>
+  
+
+  <div id="timeline-section" class="progressive-result" hidden style="background:#F8F8F8;border-top:1px solid #DFDFDF;padding:24px 56px 28px;">
+    <div style="margin-top:16px;">
+      <button id="timeline-reveal" type="button" aria-expanded="false" aria-controls="combined-chart" style="appearance:none;border:1px solid #C9D4FF;border-radius:6px;background:#FFFFFF;color:#2A46D5;padding:11px 16px;font:700 13px/18px 'Lato';cursor:pointer;">See how products behave over time when joining the segment&nbsp; →</button>
+    </div>
+    <div id="combined-chart" hidden tabindex="-1" style="margin-top:18px;padding:20px 14px 24px;background:#FFFFFF;border:1px solid #E4E4E8;border-radius:8px;">
+      <style>
+        #combined-chart .comparison-toggle{display:inline-flex;gap:4px;padding:3px;background:#F3F3F5;border-radius:7px;}
+        #combined-chart .comparison-toggle button{appearance:none;border:1px solid transparent;border-radius:5px;background:transparent;color:#777;padding:7px 11px;font:700 11px/16px 'Lato',sans-serif;cursor:pointer;white-space:nowrap;}
+        #combined-chart .comparison-toggle button:focus-visible{outline:2px solid #2A46D5;outline-offset:2px;}
+        #combined-chart .comparison-toggle button[aria-pressed="true"]{background:#FFFFFF;border-color:#D9D9DE;color:#262626;box-shadow:0 1px 2px rgba(13,5,46,0.08);}
+        #combined-chart .metric-chart-panel{min-width:0;background:#FCFCFD;border:1px solid #E7E7EA;border-radius:7px;padding:12px 10px 6px;}
+        #combined-chart .metric-chart-panel+.metric-chart-panel{margin-top:28px;}
+        #combined-chart .metric-chart-heading{font:700 12px/17px 'Lato';letter-spacing:0.05em;text-transform:uppercase;color:#55555C;margin:0 4px 2px;}
+        #combined-chart .metric-chart-panel svg{width:100%;height:auto;display:block;}
+      </style>
+      <div class="chart-toolbar" style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px 24px;flex-wrap:wrap;margin:0 2px;">
+        <div>
+          <div style="font:700 10px/14px 'Lato';letter-spacing:0.06em;text-transform:uppercase;color:#929299;">Observed response behind the scenario</div>
+          <div style="font:700 15px/22px 'Lato';margin-top:3px;">How ROAS and Meta ad spend changed after products joined</div>
+        </div>
+        <div class="chart-actions" style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+          <button id="timeline-hide" type="button" aria-controls="combined-chart" style="appearance:none;border:1px solid #E4E4E8;border-radius:6px;background:#FFFFFF;color:#666;padding:7px 12px;font:700 11px/16px 'Lato';cursor:pointer;white-space:nowrap;">Hide timeline&nbsp; ↑</button>
+          <div>
+            <div class="comparison-control-label" style="font:700 10px/14px 'Lato';letter-spacing:0.05em;text-transform:uppercase;color:#999;margin-bottom:5px;text-align:right;">Compare with</div>
+            <div class="comparison-toggle" role="group" aria-label="Comparison cohort">
+              <button type="button" data-comparison="fell" aria-pressed="true">Products that left the segment</button>
+              <button type="button" data-comparison="never" aria-pressed="false">Products that never joined</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:20px;align-items:center;margin:18px 2px 0;flex-wrap:wrap;font:400 12px/18px 'Lato';">
+        <span style="font-weight:700;color:#2A46D5;"><span style="display:inline-block;width:18px;border-top:3px solid #2A46D5;vertical-align:middle;margin-right:7px;"></span>Products that stayed in <span class="top-performers-label">Top Performers<span class="top-performers-icons" aria-hidden="true"><svg class="top-performers-sparkles-icon" viewBox="0 0 33 28" focusable="false"><use href="#top-performers-sparkles-symbol"></use></svg><svg class="top-performers-meta-icon" viewBox="0 0 24 24" focusable="false"><use href="#top-performers-meta-symbol"></use></svg></span></span></span>
+        <span id="combined-comparison-legend" style="color:#777;"><span id="combined-comparison-swatch" style="display:inline-block;width:18px;border-top:2px dashed #E56A3C;vertical-align:middle;margin-right:7px;"></span><span id="combined-comparison-label">Products that left the segment</span></span>
+      </div>
+      <div class="metric-chart-panel" style="margin-top:14px;" aria-labelledby="roas-panel-heading">
+        <div id="roas-panel-heading" class="metric-chart-heading">Return on ad spend (ROAS)</div>
+        <svg id="combined-roas-svg" viewBox="0 0 820 300" font-family="Lato" role="img" aria-labelledby="combined-roas-chart-title combined-roas-chart-desc">
+          <title id="combined-roas-chart-title">ROAS before and after joining Top Performers</title>
+          <desc id="combined-roas-chart-desc">Blue shows products that stayed in the segment. Orange initially shows products that left the segment. The vertical line marks when products entered the segment.</desc>
+          <defs>
+            <marker id="roas-chart-annotation-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#2A46D5"></path>
+            </marker>
+            <marker id="roas-chart-comparison-annotation-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+              <path id="roas-chart-comparison-annotation-arrowhead" d="M0,0 L7,3.5 L0,7 Z" fill="#E56A3C"></path>
+            </marker>
+          </defs>
+          <rect x="56" y="40" width="348" height="196" fill="#F7F7F8"></rect>
+          <rect x="404" y="40" width="348" height="196" fill="#F1F4FF"></rect>
+          <g stroke="#E3E3E7" stroke-width="1">
+            <line x1="56" y1="60" x2="752" y2="60"></line>
+            <line x1="56" y1="113.3" x2="752" y2="113.3"></line>
+            <line x1="56" y1="166.7" x2="752" y2="166.7"></line>
+            <line x1="56" y1="220" x2="752" y2="220"></line>
+          </g>
+          <g font-size="11" fill="#8F8F96" text-anchor="end">
+            <text x="48" y="64">34×</text><text x="48" y="117">22.7×</text><text x="48" y="171">11.3×</text><text x="48" y="224">0×</text>
+          </g>
+          <g id="combined-join-annotation">
+            <title>This line marks when products entered Top Performers</title>
+            <line x1="404" y1="40" x2="404" y2="236" stroke="#4D466D" stroke-width="2"></line>
+            <rect x="284.5" y="20" width="239" height="20" rx="2" fill="#4D466D"></rect>
+            <text x="386.0" y="34" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.035em">PRODUCTS ENTER TOP PERFORMERS</text>
+            
+            <g aria-hidden="true">
+              <use href="#top-performers-sparkles-symbol" x="490.5" y="23" width="13" height="13"></use>
+              <use href="#top-performers-meta-symbol" x="504.5" y="25" width="16" height="10"></use>
+            </g>
+            
+          </g>
+          <path id="combined-comparison-roas" fill="none" stroke="#E56A3C" stroke-width="2" stroke-dasharray="5 5"></path>
+          <path id="combined-top-roas" fill="none" stroke="#2A46D5" stroke-width="3.5"></path>
+          <g id="combined-comparison-points"></g>
+          <g id="combined-top-points"></g>
+          <g id="combined-roas-annotation" pointer-events="none">
+            <path d="M618 90 L736.0 188.7" fill="none" stroke="#2A46D5" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#roas-chart-annotation-arrow)"></path>
+            <rect x="500" y="46" width="236" height="44" rx="5" fill="#FFFFFF" fill-opacity="0.96" stroke="#C9D4FF"></rect>
+            <text x="512" y="62" font-size="9" font-weight="700" fill="#2A46D5" letter-spacing="0.05em">ROAS · STAYED</text>
+            <text x="512" y="79" font-size="11" font-weight="700" fill="#45454B">Peaked when products joined</text>
+          </g>
+          <g id="combined-comparison-roas-annotation" pointer-events="none">
+            <path id="combined-comparison-roas-annotation-leader" fill="none" stroke="#E56A3C" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#roas-chart-comparison-annotation-arrow)"></path>
+            <rect id="combined-comparison-roas-annotation-box" x="72" y="86" width="226" height="44" rx="5" fill="#FFFFFF" fill-opacity="0.96" stroke="#E56A3C" stroke-opacity="0.55"></rect>
+            <text id="combined-comparison-roas-annotation-label" x="84" y="102" font-size="9" font-weight="700" fill="#E56A3C" letter-spacing="0.05em">ROAS · LEFT SEGMENT</text>
+            <text id="combined-comparison-roas-annotation-insight" x="84" y="119" font-size="11" font-weight="700" fill="#45454B">Left products lower after joining</text>
+          </g>
+          <g font-size="11" text-anchor="middle">
+            
+            <text x="72.0" y="258" fill="#A5A5AB">−2</text>
+            
+            <text x="238.0" y="258" fill="#A5A5AB">−1</text>
+            
+            <text x="404.0" y="258" fill="#4D466D" font-weight="700">JOIN</text>
+            
+            <text x="570.0" y="258" fill="#A5A5AB">+1</text>
+            
+            <text x="736.0" y="258" fill="#A5A5AB">+2</text>
+            
+          </g>
+          <text x="238" y="284" font-size="11" font-weight="700" fill="#9A9A9A" text-anchor="middle" letter-spacing="0.06em">◄ BEFORE JOINING</text>
+          <text x="570" y="284" font-size="11" font-weight="700" fill="#2A46D5" text-anchor="middle" letter-spacing="0.06em">AFTER JOINING ►</text>
+        </svg>
+      </div>
+      <div class="metric-chart-panel" aria-labelledby="spend-panel-heading">
+        <div id="spend-panel-heading" class="metric-chart-heading">Average weekly Meta ad spend per product</div>
+        <svg id="combined-spend-svg" viewBox="0 0 820 300" font-family="Lato" role="img" aria-labelledby="combined-spend-chart-title combined-spend-chart-desc">
+          <title id="combined-spend-chart-title">Average weekly Meta ad spend before and after joining Top Performers</title>
+          <desc id="combined-spend-chart-desc">Blue shows products that stayed in the segment. Orange initially shows products that left the segment. The vertical line marks when products entered the segment. Bars show average weekly Meta ad spend per product.</desc>
+          <defs>
+            <marker id="spend-chart-annotation-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#2A46D5"></path>
+            </marker>
+            <marker id="spend-chart-comparison-annotation-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+              <path id="spend-chart-comparison-annotation-arrowhead" d="M0,0 L7,3.5 L0,7 Z" fill="#E56A3C"></path>
+            </marker>
+          </defs>
+          <rect x="56" y="40" width="348" height="196" fill="#F7F7F8"></rect>
+          <rect x="404" y="40" width="348" height="196" fill="#F1F4FF"></rect>
+          <g stroke="#E3E3E7" stroke-width="1">
+            <line x1="56" y1="60" x2="752" y2="60"></line>
+            <line x1="56" y1="113.3" x2="752" y2="113.3"></line>
+            <line x1="56" y1="166.7" x2="752" y2="166.7"></line>
+            <line x1="56" y1="220" x2="752" y2="220"></line>
+          </g>
+          <g font-size="11" fill="#8F8F96" text-anchor="end">
+            <text x="48" y="64">200 Kč</text><text x="48" y="117">133 Kč</text><text x="48" y="171">67 Kč</text><text x="48" y="224">0 Kč</text>
+          </g>
+          <g id="combined-spend-join-annotation">
+            <title>This line marks when products entered Top Performers</title>
+            <line x1="404" y1="40" x2="404" y2="236" stroke="#4D466D" stroke-width="2"></line>
+            <rect x="284.5" y="20" width="239" height="20" rx="2" fill="#4D466D"></rect>
+            <text x="386.0" y="34" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.035em">PRODUCTS ENTER TOP PERFORMERS</text>
+            
+            <g aria-hidden="true">
+              <use href="#top-performers-sparkles-symbol" x="490.5" y="23" width="13" height="13"></use>
+              <use href="#top-performers-meta-symbol" x="504.5" y="25" width="16" height="10"></use>
+            </g>
+            
+          </g>
+          <g id="combined-comparison-spend"></g>
+          <g id="combined-top-spend"></g>
+          <g id="combined-spend-annotation" pointer-events="none">
+            <path d="M618 90 L725.0 134.0" fill="none" stroke="#2A46D5" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#spend-chart-annotation-arrow)"></path>
+            <rect x="500" y="46" width="236" height="44" rx="5" fill="#FFFFFF" fill-opacity="0.96" stroke="#C9D4FF"></rect>
+            <text x="512" y="62" font-size="9" font-weight="700" fill="#2A46D5" letter-spacing="0.05em">AVG SPEND · STAYED</text>
+            <text x="512" y="79" font-size="11" font-weight="700" fill="#45454B">Kept increasing after joining</text>
+          </g>
+          <g id="combined-comparison-spend-annotation" pointer-events="none">
+            <path id="combined-comparison-spend-annotation-leader" fill="none" stroke="#E56A3C" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#spend-chart-comparison-annotation-arrow)"></path>
+            <rect id="combined-comparison-spend-annotation-box" x="72" y="86" width="226" height="44" rx="5" fill="#FFFFFF" fill-opacity="0.96" stroke="#E56A3C" stroke-opacity="0.55"></rect>
+            <text id="combined-comparison-spend-annotation-label" x="84" y="102" font-size="9" font-weight="700" fill="#E56A3C" letter-spacing="0.05em">AVG SPEND · LEFT SEGMENT</text>
+            <text id="combined-comparison-spend-annotation-insight" x="84" y="119" font-size="11" font-weight="700" fill="#45454B">Left products higher after joining</text>
+          </g>
+          <g font-size="11" text-anchor="middle">
+            
+            <text x="72.0" y="258" fill="#A5A5AB">−2</text>
+            
+            <text x="238.0" y="258" fill="#A5A5AB">−1</text>
+            
+            <text x="404.0" y="258" fill="#4D466D" font-weight="700">JOIN</text>
+            
+            <text x="570.0" y="258" fill="#A5A5AB">+1</text>
+            
+            <text x="736.0" y="258" fill="#A5A5AB">+2</text>
+            
+          </g>
+          <text x="238" y="284" font-size="11" font-weight="700" fill="#9A9A9A" text-anchor="middle" letter-spacing="0.06em">◄ BEFORE JOINING</text>
+          <text x="570" y="284" font-size="11" font-weight="700" fill="#2A46D5" text-anchor="middle" letter-spacing="0.06em">AFTER JOINING ►</text>
+        </svg>
+      </div>
+      <div style="font:400 11px/16px 'Lato';color:#999;margin:2px 2px 0;">ROAS and Meta ad spend use separate labelled scales.</div>
+      <div style="display:flex;align-items:flex-start;gap:10px;background:#F2F5FF;border-radius:6px;padding:12px 16px;margin:14px 2px 0;">
+        <span style="font-size:15px;line-height:22px;">💡</span>
+        <div style="font:700 15px/22px 'Lato';color:#262626;">From joining through the following 2 weeks, Meta ad spend on the 1,675 products that stayed in the segment changed by <span style="color:#2A46D5;">+78%</span>, while Meta-attributed revenue changed by <span style="color:#2A46D5;">+140%</span> and ROAS improved from 11.41× to 15.41×.</div>
+      </div>
+    </div>
+    <div style="font:400 10px/15px 'Lato';color:#AAAAAF;margin-top:8px;">Average weekly Meta ad spend and Meta-attributed revenue.</div>
+  </div>
+
+  <!-- ===== SEGMENT AT A GLANCE + TABLE ===== -->
+  <div id="catalogue-results" class="progressive-result" hidden style="background:#F8F8F8;border-top:1px solid #DFDFDF;padding:28px 56px 40px;">
+    <div style="font:700 12px/18px 'Lato';letter-spacing:0.06em;text-transform:uppercase;color:#6F6F6F;">More product journeys</div>
+    <div style="font:400 13px/19px 'Lato';color:#8A8A8A;margin-top:4px;max-width:680px;">A selection of 9 product journeys over the same window, showing how ROAS changed with additional spend and whether each product stayed in or left the segment.</div>
+
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:12px;font:400 11px/16px 'Lato';color:#999;">
+      <span>Each row is aligned to that product’s own joining week · darker = more days in the segment that week · <b style="color:#4D466D;">outlined = the joining week</b></span>
+      <span style="display:flex;align-items:center;gap:6px;">
+        <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:#F0F0F0;vertical-align:middle;"></span>not in segment →
+        <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:rgba(42,70,213,0.9);vertical-align:middle;"></span>
+        <span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:rgba(241,88,37,0.9);vertical-align:middle;"></span> full week
+      </span>
+    </div>
+
+    <div id="evidence-table-scroll" role="region" aria-label="Product journey table; scroll horizontally to view all columns" tabindex="0" style="overflow-x:auto;">
+    <table id="evidence-table" style="width:100%;min-width:920px;border-collapse:collapse;margin-top:12px;table-layout:auto;">
+      <thead>
+        <tr>
+          <th style="font:700 11px/16px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#999;text-align:left;padding:0 0 8px;border-bottom:1px solid #DFDFDF;min-width:230px;">Product</th>
+          <th style="font:700 11px/16px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#999;text-align:right;padding:0 0 8px 28px;border-bottom:1px solid #DFDFDF;white-space:nowrap;">Meta ad spend<div style="font:400 9px/13px 'Lato';letter-spacing:0;text-transform:none;color:#B4B4BA;">2 weeks before → join week + 2 after</div></th>
+          <th style="font:700 11px/16px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#999;text-align:right;padding:0 0 8px 28px;border-bottom:1px solid #DFDFDF;white-space:nowrap;">ROAS<div style="font:400 9px/13px 'Lato';letter-spacing:0;text-transform:none;color:#B4B4BA;">2 weeks before → join week + 2 after</div></th>
+          <th style="font:700 11px/16px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#999;text-align:right;padding:0 0 8px 28px;border-bottom:1px solid #DFDFDF;vertical-align:bottom;">
+            <div style="text-align:right;">
+              <div>Weeks in the segment</div>
+              <div style="display:flex;gap:3px;justify-content:flex-end;align-items:flex-end;margin-top:8px;">
+                <div style="width:51px;font:400 9px/12px 'Lato';letter-spacing:0;text-transform:none;color:#B4B4BA;text-align:center;border-bottom:1px solid #E4E4E8;padding-bottom:3px;">2 weeks before</div>
+                <div style="width:24px;font:700 9px/12px 'Lato';letter-spacing:0.04em;color:#4D466D;text-align:center;">JOIN</div>
+                <div style="width:51px;font:400 9px/12px 'Lato';letter-spacing:0;text-transform:none;color:#B4B4BA;text-align:center;border-bottom:1px solid #E4E4E8;padding-bottom:3px;">2 weeks after</div>
+              </div>
+            </div>
+          </th>
+          <th style="font:700 11px/16px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#999;text-align:right;padding:0 0 8px 20px;border-bottom:1px solid #DFDFDF;vertical-align:bottom;">Outcome</th>
+        </tr>
+      </thead>
+      <tbody id="evidence-table-body">
+        
+        
+        <tr>
+          <td style="padding:12px 0;border-bottom:1px solid #EEEEEE;">
+            <div style="font:700 13px/17px 'Lato';color:#262626;">5* wellness hotel a krásné vilky v polských Krkonoších</div>
+            <div style="font:400 11px/15px 'Lato';color:#999;">Termy Karkonosze Resort &amp; Spa*****</div>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">6.3k Kč</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            <span style="font:700 13px/17px 'Lato';color:#555;">9.2k Kč</span>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">3.7×</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            
+              <span style="font:700 13px/17px 'Lato';color:#03874C;">11.1× <span style="color:#03874C;font-weight:700;">▲</span></span>
+            
+          </td>
+          <td style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;">
+            <div style="display:flex;gap:3px;justify-content:flex-end;align-items:center;">
+              
+              
+              
+              
+                
+                <div aria-label="1 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(42,70,213,0.27);flex:none;border:1px solid transparent;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="1 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(42,70,213,0.27);flex:none;border:1px solid transparent;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="7 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(42,70,213,0.96);flex:none;border:2px solid #4D466D;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="7 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(42,70,213,0.96);flex:none;border:1px solid transparent;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="7 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(42,70,213,0.96);flex:none;border:1px solid transparent;"></div>
+              
+              
+            </div>
+          </td>
+          <td style="padding:12px 0 12px 20px;border-bottom:1px solid #EEEEEE;text-align:right;">
+            
+              <span style="font:700 10px/14px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#2A46D5;background:#EEF1FF;padding:3px 8px;border-radius:2px;white-space:nowrap;">Stayed in the segment</span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td style="padding:12px 0;border-bottom:1px solid #EEEEEE;">
+            <div style="font:700 13px/17px 'Lato';color:#262626;">5* hotel v polských Jizerkách s wellness a jídlem</div>
+            <div style="font:400 11px/15px 'Lato';color:#999;">Elements Hotel &amp; Spa</div>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">2.6k Kč</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            <span style="font:700 13px/17px 'Lato';color:#555;">8.8k Kč</span>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">3.0×</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            
+              <span style="font:700 13px/17px 'Lato';color:#03874C;">12.1× <span style="color:#03874C;font-weight:700;">▲</span></span>
+            
+          </td>
+          <td style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;">
+            <div style="display:flex;gap:3px;justify-content:flex-end;align-items:center;">
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="5 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(42,70,213,0.73);flex:none;border:2px solid #4D466D;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="7 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(42,70,213,0.96);flex:none;border:1px solid transparent;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="7 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(42,70,213,0.96);flex:none;border:1px solid transparent;"></div>
+              
+              
+            </div>
+          </td>
+          <td style="padding:12px 0 12px 20px;border-bottom:1px solid #EEEEEE;text-align:right;">
+            
+              <span style="font:700 10px/14px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#2A46D5;background:#EEF1FF;padding:3px 8px;border-radius:2px;white-space:nowrap;">Stayed in the segment</span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td style="padding:12px 0;border-bottom:1px solid #EEEEEE;">
+            <div style="font:700 13px/17px 'Lato';color:#262626;">Relax na Malé Morávce: strava, wellness i pivní lázeň</div>
+            <div style="font:400 11px/15px 'Lato';color:#999;">Hotel Brans</div>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">2.1k Kč</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            <span style="font:700 13px/17px 'Lato';color:#555;">4.1k Kč</span>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">5.1×</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            
+              <span style="font:700 13px/17px 'Lato';color:#03874C;">16.1× <span style="color:#03874C;font-weight:700;">▲</span></span>
+            
+          </td>
+          <td style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;">
+            <div style="display:flex;gap:3px;justify-content:flex-end;align-items:center;">
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="3 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(42,70,213,0.50);flex:none;border:1px solid transparent;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="7 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(42,70,213,0.96);flex:none;border:2px solid #4D466D;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="7 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(42,70,213,0.96);flex:none;border:1px solid transparent;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="7 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(42,70,213,0.96);flex:none;border:1px solid transparent;"></div>
+              
+              
+            </div>
+          </td>
+          <td style="padding:12px 0 12px 20px;border-bottom:1px solid #EEEEEE;text-align:right;">
+            
+              <span style="font:700 10px/14px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#2A46D5;background:#EEF1FF;padding:3px 8px;border-radius:2px;white-space:nowrap;">Stayed in the segment</span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td style="padding:12px 0;border-bottom:1px solid #EEEEEE;">
+            <div style="font:700 13px/17px 'Lato';color:#262626;">Running sushi: 2hodinová asijská hostina v OC</div>
+            <div style="font:400 11px/15px 'Lato';color:#999;">China Bistro</div>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">767 Kč</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            <span style="font:700 13px/17px 'Lato';color:#555;">10.8k Kč</span>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">3.1×</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            
+              <span style="font:700 13px/17px 'Lato';color:#D92D20;">0.5× <span style="color:#D92D20;font-weight:700;">▼</span></span>
+            
+          </td>
+          <td style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;">
+            <div style="display:flex;gap:3px;justify-content:flex-end;align-items:center;">
+              
+              
+              
+              
+                
+                <div aria-label="1 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(241,88,37,0.27);flex:none;border:1px solid transparent;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="3 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(241,88,37,0.50);flex:none;border:1px solid transparent;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="5 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(241,88,37,0.73);flex:none;border:2px solid #4D466D;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="1 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(241,88,37,0.27);flex:none;border:1px solid transparent;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+            </div>
+          </td>
+          <td style="padding:12px 0 12px 20px;border-bottom:1px solid #EEEEEE;text-align:right;">
+            
+              <span style="font:700 10px/14px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#C2410C;background:#FFF2E8;padding:3px 8px;border-radius:2px;white-space:nowrap;">Left the segment</span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td style="padding:12px 0;border-bottom:1px solid #EEEEEE;">
+            <div style="font:700 13px/17px 'Lato';color:#262626;">Adult only wellness pobyt: jídlo i nápoje, saunové rituály</div>
+            <div style="font:400 11px/15px 'Lato';color:#999;">Falkensteiner Hotel Bad Leonfelden</div>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">3.3k Kč</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            <span style="font:700 13px/17px 'Lato';color:#555;">8.2k Kč</span>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">5.0×</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            
+              <span style="font:700 13px/17px 'Lato';color:#D92D20;">0.0× <span style="color:#D92D20;font-weight:700;">▼</span></span>
+            
+          </td>
+          <td style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;">
+            <div style="display:flex;gap:3px;justify-content:flex-end;align-items:center;">
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="3 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(241,88,37,0.50);flex:none;border:1px solid transparent;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="7 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(241,88,37,0.96);flex:none;border:2px solid #4D466D;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="6 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(241,88,37,0.85);flex:none;border:1px solid transparent;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="3 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(241,88,37,0.50);flex:none;border:1px solid transparent;"></div>
+              
+              
+            </div>
+          </td>
+          <td style="padding:12px 0 12px 20px;border-bottom:1px solid #EEEEEE;text-align:right;">
+            
+              <span style="font:700 10px/14px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#C2410C;background:#FFF2E8;padding:3px 8px;border-radius:2px;white-space:nowrap;">Left the segment</span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td style="padding:12px 0;border-bottom:1px solid #EEEEEE;">
+            <div style="font:700 13px/17px 'Lato';color:#262626;">Chorvatsko: 4* hotel, aquapark i all inclusive light, až 2 děti zdarma</div>
+            <div style="font:400 11px/15px 'Lato';color:#999;">Hotel Well</div>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">4.1k Kč</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            <span style="font:700 13px/17px 'Lato';color:#555;">6.3k Kč</span>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">5.8×</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            
+              <span style="font:700 13px/17px 'Lato';color:#D92D20;">0.0× <span style="color:#D92D20;font-weight:700;">▼</span></span>
+            
+          </td>
+          <td style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;">
+            <div style="display:flex;gap:3px;justify-content:flex-end;align-items:center;">
+              
+              
+              
+              
+                
+                <div aria-label="1 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(241,88,37,0.27);flex:none;border:1px solid transparent;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="2 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(241,88,37,0.39);flex:none;border:1px solid transparent;"></div>
+              
+              
+              
+              
+              
+                
+                <div aria-label="5 days in the segment" style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:rgba(241,88,37,0.73);flex:none;border:2px solid #4D466D;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+            </div>
+          </td>
+          <td style="padding:12px 0 12px 20px;border-bottom:1px solid #EEEEEE;text-align:right;">
+            
+              <span style="font:700 10px/14px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#C2410C;background:#FFF2E8;padding:3px 8px;border-radius:2px;white-space:nowrap;">Left the segment</span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td style="padding:12px 0;border-bottom:1px solid #EEEEEE;">
+            <div style="font:700 13px/17px 'Lato';color:#262626;">Noc ve Středověkém hotelu Dětenice s programem i hostinou</div>
+            <div style="font:400 11px/15px 'Lato';color:#999;">Zámecký resort Dětenice</div>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">13.2k Kč</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            <span style="font:700 13px/17px 'Lato';color:#555;">42.5k Kč</span>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">0.4×</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            
+              <span style="font:700 13px/17px 'Lato';color:#262626;">0.2× <span style="color:#B0B0B0;font-weight:700;">▬</span></span>
+            
+          </td>
+          <td style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;">
+            <div style="display:flex;gap:3px;justify-content:flex-end;align-items:center;">
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+            </div>
+          </td>
+          <td style="padding:12px 0 12px 20px;border-bottom:1px solid #EEEEEE;text-align:right;">
+            
+              <span style="font:700 10px/14px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#6F6F6F;background:#F0F0F0;padding:3px 8px;border-radius:2px;white-space:nowrap;">Never joined</span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td style="padding:12px 0;border-bottom:1px solid #EEEEEE;">
+            <div style="font:700 13px/17px 'Lato';color:#262626;">Sardinie: hotel s 11 bazény a stravou kousek od pláže</div>
+            <div style="font:400 11px/15px 'Lato';color:#999;">Arbatax Park Telis By Falkensteiner</div>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">826 Kč</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            <span style="font:700 13px/17px 'Lato';color:#555;">47.8k Kč</span>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">0.0×</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            
+              <span style="font:700 13px/17px 'Lato';color:#262626;">0.0× <span style="color:#B0B0B0;font-weight:700;">▬</span></span>
+            
+          </td>
+          <td style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;">
+            <div style="display:flex;gap:3px;justify-content:flex-end;align-items:center;">
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+            </div>
+          </td>
+          <td style="padding:12px 0 12px 20px;border-bottom:1px solid #EEEEEE;text-align:right;">
+            
+              <span style="font:700 10px/14px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#6F6F6F;background:#F0F0F0;padding:3px 8px;border-radius:2px;white-space:nowrap;">Never joined</span>
+            
+          </td>
+        </tr>
+        
+        
+        <tr>
+          <td style="padding:12px 0;border-bottom:1px solid #EEEEEE;">
+            <div style="font:700 13px/17px 'Lato';color:#262626;">Noc v dětenickém hotelu Rustikal pro 2 osoby</div>
+            <div style="font:400 11px/15px 'Lato';color:#999;">Zámecký resort Dětenice</div>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">23.3k Kč</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            <span style="font:700 13px/17px 'Lato';color:#555;">4.9k Kč</span>
+          </td>
+          <td class="num" style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;text-align:right;white-space:nowrap;">
+            <span style="font:400 13px/17px 'Lato';color:#999;">0.7×</span>
+            <span style="color:#C4C4C4;margin:0 5px;">→</span>
+            
+              <span style="font:700 13px/17px 'Lato';color:#262626;">0.0× <span style="color:#B0B0B0;font-weight:700;">▬</span></span>
+            
+          </td>
+          <td style="padding:12px 0 12px 28px;border-bottom:1px solid #EEEEEE;">
+            <div style="display:flex;gap:3px;justify-content:flex-end;align-items:center;">
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+              
+              
+              
+                
+                <div style="width:24px;height:24px;box-sizing:border-box;border-radius:4px;background:#FBFBFC;color:#4D466D;font:700 11px/22px 'Lato';text-align:center;flex:none;border:1px solid #ECECEF;"></div>
+              
+              
+            </div>
+          </td>
+          <td style="padding:12px 0 12px 20px;border-bottom:1px solid #EEEEEE;text-align:right;">
+            
+              <span style="font:700 10px/14px 'Lato';letter-spacing:0.04em;text-transform:uppercase;color:#6F6F6F;background:#F0F0F0;padding:3px 8px;border-radius:2px;white-space:nowrap;">Never joined</span>
+            
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    </div>
+
+    <div style="font:400 15px/23px 'Lato';color:#555;margin-top:24px;max-width:760px;">This selection includes 3 stayed, 3 left, and 3 never-joined comparison products. Spend is total Meta spend in each aligned window and can include spend after a product left the segment.</div>
+  </div>
+
+  
+</div>
+    </div>
+  </div>
+</div>
+<script>
+  window.addEventListener("beforeprint", function () { var d = document.getElementById("impact-method"); if (d) { d.dataset.wasOpen = d.open ? "1" : "0"; d.open = true; } if (window.initCombinedChart) { window.initCombinedChart(); } });
+  window.addEventListener("afterprint", function () { var d = document.getElementById("impact-method"); if (d && d.dataset.wasOpen === "0") { d.open = false; } });
+  (function () {
+    const chartData = {"top": {"label": "Products that stayed in Top Performers", "spend": [56.284, 59.535, 100.045, 100.835, 107.517], "roas": [1.1683078592124334, 21.0999844417511, 30.83247397506991, 9.466748081727099, 6.641055355568462]}, "comparisons": {"never": {"label": "Products that never joined", "color": "#9DA0A6", "spend": [63.292, 66.415, 71.234, 72.738, 70.198], "roas": [0.5201337518616237, 0.5005174409910002, 0.40581002813776956, 0.4588857956808005, 0.5900459685083437]}, "fell": {"label": "Products that left the segment", "color": "#E56A3C", "spend": [50.005, 61.954, 130.959, 164.258, 142.022], "roas": [3.3725655465484814, 11.578905881407074, 4.332350238979947, 1.4850449439140654, 2.3146513578635823]}}};
+    const spendMax = 200;
+    const roasMax = 34;
+    const currencyLabel = "K\u010d";
+    const currencySymbolAfter = true;
+    const defaultComparison = "fell";
+    let chartReady = false;
+
+    window.initCombinedChart = function () {
+      const roasSvg = document.getElementById("combined-roas-svg");
+      const spendSvg = document.getElementById("combined-spend-svg");
+      if (!roasSvg || !spendSvg || chartReady) return;
+      chartReady = true;
+
+      const ns = "http://www.w3.org/2000/svg";
+      const weeks = ["\u22122", "\u22121", "JOIN", "+1", "+2"];
+      const eventRadius = 2;
+      const joinIndex = 2;
+      const top = chartData.top;
+      const comparisons = chartData.comparisons;
+      const xStep = 664 / Math.max(1, weeks.length - 1);
+      const x = (i) => 72 + i * xStep;
+      const yRoas = (value) => 220 - (Math.max(0, value) / roasMax) * 160;
+      const ySpend = (value) => 220 - (Math.max(0, value) / spendMax) * 160;
+      const formatSpend = (value) => currencySymbolAfter
+        ? `${value.toFixed(0)} ${currencyLabel}`
+        : `${currencyLabel}${value.toFixed(0)}`;
+
+      function element(name, attrs, title) {
+        const node = document.createElementNS(ns, name);
+        Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+        if (title) {
+          const titleNode = document.createElementNS(ns, "title");
+          titleNode.textContent = title;
+          node.appendChild(titleNode);
+          node.setAttribute("tabindex", "0");
+        }
+        return node;
+      }
+
+      function linePath(values) {
+        let path = "";
+        let drawing = false;
+        values.forEach((value, i) => {
+          if (value === null || value === undefined || !Number.isFinite(Number(value))) {
+            drawing = false;
+            return;
+          }
+          path += `${drawing ? " L" : "M"}${x(i)} ${yRoas(Number(value)).toFixed(1)}`;
+          drawing = true;
+        });
+        return path;
+      }
+
+      function drawBars(group, values, options) {
+        group.replaceChildren();
+        values.forEach((value, i) => {
+          const y = ySpend(value);
+          const height = Math.max(0, 220 - y);
+          group.appendChild(element("rect", {
+            x: x(i) + options.offset - options.width / 2,
+            y: y.toFixed(1),
+            width: options.width,
+            height: height.toFixed(1),
+            rx: 2,
+            fill: options.color,
+            opacity: options.opacity
+          }, `${options.label}, ${weeks[i]}: ${formatSpend(value)} average weekly Meta ad spend per product`));
+        });
+      }
+
+      function drawPoints(group, values, options) {
+        group.replaceChildren();
+        values.forEach((value, i) => {
+          if (value === null || value === undefined || !Number.isFinite(Number(value))) return;
+          group.appendChild(element("circle", {
+            cx: x(i),
+            cy: yRoas(Number(value)).toFixed(1),
+            r: options.radius,
+            fill: options.color,
+            opacity: options.opacity
+          }, `${options.label}, ${weeks[i]}: ${value.toFixed(1)}× ROAS`));
+        });
+      }
+
+      document.getElementById("combined-top-roas").setAttribute("d", linePath(top.roas));
+      drawBars(document.getElementById("combined-top-spend"), top.spend, {
+        width: 18, offset: -11, color: "#2A46D5", opacity: 0.7, label: top.label
+      });
+      drawPoints(document.getElementById("combined-top-points"), top.roas, {
+        radius: 3.5, color: "#2A46D5", opacity: 1, label: top.label
+      });
+
+      function annotationTargetIndex(values, preferredIndex) {
+        const isFiniteValue = (value) =>
+          value !== null && value !== undefined && Number.isFinite(Number(value));
+        if (isFiniteValue(values[preferredIndex])) return preferredIndex;
+        return values.findIndex(isFiniteValue);
+      }
+
+      function relativeAnnotation(comparisonValues, stayedValues, subject) {
+        const pairs = comparisonValues.flatMap((value, index) => {
+          const stayedValue = stayedValues[index];
+          if (value === null || value === undefined || stayedValue === null || stayedValue === undefined) {
+            return [];
+          }
+          const comparisonNumber = Number(value);
+          const stayedNumber = Number(stayedValue);
+          return Number.isFinite(comparisonNumber) && Number.isFinite(stayedNumber)
+            ? [[index, comparisonNumber, stayedNumber]]
+            : [];
+        });
+        if (!pairs.length) return `${subject} trend`;
+        if (pairs.every(([, comparisonValue, stayedValue]) => comparisonValue < stayedValue)) {
+          return `${subject} lower throughout`;
+        }
+        if (pairs.every(([, comparisonValue, stayedValue]) => comparisonValue > stayedValue)) {
+          return `${subject} higher throughout`;
+        }
+        const postJoinPairs = pairs.filter(([index]) => index >= joinIndex);
+        if (
+          postJoinPairs.length &&
+          postJoinPairs.every(([, comparisonValue, stayedValue]) => comparisonValue < stayedValue)
+        ) {
+          return `${subject} lower after joining`;
+        }
+        if (
+          postJoinPairs.length &&
+          postJoinPairs.every(([, comparisonValue, stayedValue]) => comparisonValue > stayedValue)
+        ) {
+          return `${subject} higher after joining`;
+        }
+        const [, comparisonValue, stayedValue] = postJoinPairs.at(-1) || pairs.at(-1);
+        if (comparisonValue < stayedValue) return `${subject} lower by week +${eventRadius}`;
+        if (comparisonValue > stayedValue) return `${subject} higher by week +${eventRadius}`;
+        return `Level by week +${eventRadius}`;
+      }
+
+      function selectComparison(key) {
+        const comparison = comparisons[key];
+        const comparisonPath = document.getElementById("combined-comparison-roas");
+        comparisonPath.setAttribute("d", linePath(comparison.roas));
+        comparisonPath.setAttribute("stroke", comparison.color);
+        comparisonPath.setAttribute("opacity", key === "never" ? "0.58" : "0.72");
+        drawBars(document.getElementById("combined-comparison-spend"), comparison.spend, {
+          width: 18, offset: 11, color: comparison.color, opacity: key === "never" ? 0.34 : 0.48, label: comparison.label
+        });
+        drawPoints(document.getElementById("combined-comparison-points"), comparison.roas, {
+          radius: 2.5, color: comparison.color, opacity: key === "never" ? 0.58 : 0.72, label: comparison.label
+        });
+        document.getElementById("combined-comparison-swatch").style.borderTopColor = comparison.color;
+        document.getElementById("combined-comparison-label").textContent = comparison.label;
+
+        const annotationCohort = key === "never" ? "NEVER JOINED" : "LEFT SEGMENT";
+        const annotationSubject = key === "never" ? "Never-joined products" : "Left products";
+        const annotationColor = key === "never" ? "#777A80" : comparison.color;
+        const comparisonTargetIndex = Math.max(0, joinIndex - 2);
+        const roasAnnotationIndex = annotationTargetIndex(
+          comparison.roas,
+          comparisonTargetIndex
+        );
+        const spendAnnotationIndex = annotationTargetIndex(
+          comparison.spend,
+          comparisonTargetIndex
+        );
+        const roasAnnotationLeader = document.getElementById("combined-comparison-roas-annotation-leader");
+        const spendAnnotationLeader = document.getElementById("combined-comparison-spend-annotation-leader");
+
+        roasAnnotationLeader.setAttribute(
+          "d",
+          roasAnnotationIndex >= 0
+            ? `M278 108 L${x(roasAnnotationIndex)} ${yRoas(Number(comparison.roas[roasAnnotationIndex])).toFixed(1)}`
+            : ""
+        );
+        spendAnnotationLeader.setAttribute(
+          "d",
+          spendAnnotationIndex >= 0
+            ? `M298 108 L${x(spendAnnotationIndex) + 11} ${ySpend(Number(comparison.spend[spendAnnotationIndex])).toFixed(1)}`
+            : ""
+        );
+        [roasAnnotationLeader, spendAnnotationLeader].forEach((leader) => {
+          leader.setAttribute("stroke", comparison.color);
+        });
+        ["roas", "spend"].forEach((metric) => {
+          const box = document.getElementById(`combined-comparison-${metric}-annotation-box`);
+          const label = document.getElementById(`combined-comparison-${metric}-annotation-label`);
+          box.setAttribute("stroke", comparison.color);
+          box.setAttribute("stroke-opacity", "0.55");
+          label.setAttribute("fill", annotationColor);
+        });
+        [
+          "roas-chart-comparison-annotation-arrowhead",
+          "spend-chart-comparison-annotation-arrowhead"
+        ].forEach((id) => {
+          document.getElementById(id).setAttribute("fill", comparison.color);
+        });
+        document.getElementById("combined-comparison-roas-annotation-label").textContent = `ROAS · ${annotationCohort}`;
+        document.getElementById("combined-comparison-spend-annotation-label").textContent = `AVG SPEND · ${annotationCohort}`;
+        document.getElementById("combined-comparison-roas-annotation-insight").textContent =
+          relativeAnnotation(comparison.roas, top.roas, annotationSubject);
+        document.getElementById("combined-comparison-spend-annotation-insight").textContent =
+          relativeAnnotation(comparison.spend, top.spend, annotationSubject);
+        document.getElementById("combined-roas-chart-desc").textContent =
+          `Blue shows products that stayed in the segment. ${comparison.label} are shown as a dashed ${comparison.color === "#E56A3C" ? "orange" : "gray"} line. The vertical line marks when products entered the segment.`;
+        document.getElementById("combined-spend-chart-desc").textContent =
+          `Blue shows products that stayed in the segment. ${comparison.label} are shown as ${comparison.color === "#E56A3C" ? "orange" : "gray"} bars. The vertical line marks when products entered the segment.`;
+
+        document.querySelectorAll("#combined-chart [data-comparison]").forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset.comparison === key));
+        });
+      }
+
+      document.querySelectorAll("#combined-chart [data-comparison]").forEach((button) => {
+        button.addEventListener("click", () => selectComparison(button.dataset.comparison));
+      });
+      selectComparison(defaultComparison);
+    };
+
+    const impactButton = document.getElementById("impact-reveal");
+    const impactGate = document.getElementById("impact-gate");
+    const heroResults = document.getElementById("hero-results");
+    if (impactButton && impactGate && heroResults) {
+      impactButton.addEventListener("click", function () {
+        impactButton.setAttribute("aria-expanded", "true");
+        document.querySelectorAll(".progressive-result").forEach(function (section) {
+          section.hidden = false;
+          section.classList.add("revealed");
+        });
+        impactGate.hidden = true;
+        heroResults.focus({preventScroll: true});
+        heroResults.scrollIntoView({
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+          block: "start"
+        });
+      });
+    }
+
+    const timelineButton = document.getElementById("timeline-reveal");
+    const timelineHideButton = document.getElementById("timeline-hide");
+    const timelineChart = document.getElementById("combined-chart");
+
+    function showTimelineChart() {
+      if (!timelineChart || !timelineButton) return;
+      timelineButton.setAttribute("aria-expanded", "true");
+      timelineChart.hidden = false;
+      timelineChart.classList.add("revealed");
+      timelineButton.hidden = true;
+      window.initCombinedChart();
+      timelineChart.focus({preventScroll: true});
+      timelineChart.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start"
+      });
+    }
+
+    function hideTimelineChart() {
+      if (!timelineChart || !timelineButton) return;
+      timelineButton.setAttribute("aria-expanded", "false");
+      timelineChart.hidden = true;
+      timelineChart.classList.remove("revealed");
+      timelineButton.hidden = false;
+      timelineButton.focus({preventScroll: true});
+    }
+
+    if (timelineButton && timelineChart) {
+      timelineButton.addEventListener("click", showTimelineChart);
+    }
+    if (timelineHideButton) {
+      timelineHideButton.addEventListener("click", hideTimelineChart);
+    }
+
+  }());
+</script>
+</body>
+</html>
